@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="py-4">
-    <a href="{{ url('contact') }}" class="text-xl font-semibold text-black text-center">Back</a>
+    <a href="{{ url('contact') }}" class="inline-block text-gray-600 text-xl font-semibold no-underline hover:text-purple-600 hover:text-underline py-2 px-4">Back</a>
 </div>
-<div class="text-4xl font-semibold text-black text-center pb-6">Add Contact</div>
+<div class="md:text-3xl text-xl text-purple-600 font-semibold text-center mb-10">Add Contact</div>
 <main class="bg-white rounded-lg shadow-2xl w-full p-6">
     <form action="{{url('store-contact')}}" method="POST">
         @csrf
@@ -13,6 +13,7 @@
             <select name="customer"
                 class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-500/75 transition duration-500 p-3"
                 placeholder="First Name" class="border-2">
+                <option value="">-- Select data --</option>
                 @foreach($customer as $customercon)
                 <option value="{{ $customercon->id }}">{{ $customercon->name }}</option>
                 @endforeach

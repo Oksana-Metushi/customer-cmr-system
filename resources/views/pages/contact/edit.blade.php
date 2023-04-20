@@ -5,7 +5,7 @@
 <div class="py-4">
     <a href="{{ url('contact') }}" class="inline-block text-gray-600 text-xl font-semibold no-underline hover:text-purple-600 hover:text-underline py-2 px-4">Back</a>
 </div>
-<div class="md:text-3xl text-xl text-purple-600 font-semibold text-center mb-10">Add Contact</div>
+<div class="md:text-3xl text-xl text-purple-600 font-semibold text-center mb-10">Edit Contact</div>
 
 <main class="bg-white rounded-lg shadow-2xl w-full p-6">
     <form action="{{url('update-contact/'.$contact->id)}}" method="POST">

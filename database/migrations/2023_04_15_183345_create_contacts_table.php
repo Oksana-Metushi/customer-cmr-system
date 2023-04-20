@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contacts', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedInteger('customer_id');
-            $table->string('fName');
-            $table->string('lName');
-            $table->integer('telephone');
-            $table->string('email');
-            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('contacts')) {
+            Schema::create('contacts', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('customer_id');
+                $table->string('fName');
+                $table->string('lName');
+                $table->string('telephone');
+                $table->string('email');
+                $table->foreign('customer_id')->references('id')->on('customers')->constrained()->cascadeOnDelete();
+                $table->timestamps();
+            });
+        }
     }
 
     /**

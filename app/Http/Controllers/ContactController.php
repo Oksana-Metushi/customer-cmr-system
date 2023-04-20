@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {
     public function index(){
-        $contact = Contacts::all();
+        $contact = Contacts::paginate(4);
         return view('pages.contact.index', compact('contact'));
     }
 

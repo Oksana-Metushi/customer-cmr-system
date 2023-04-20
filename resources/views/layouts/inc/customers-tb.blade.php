@@ -1,13 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="py-4">
-    <a href="{{ url('customer') }}" class="inline-block text-gray-600 text-xl font-semibold no-underline hover:text-purple-600 hover:text-underline py-2 px-4">Back</a>
-</div>
-@if ($customers->isEmpty())
-    <div class="md:text-3xl text-xl text-purple-600 font-semibold text-center mb-10">Data Not Found</div>
-@else
-<div class="md:text-3xl text-xl text-purple-600 font-semibold text-center mb-10">Customer</div>
 <div class="overflow-x-auto rounded-lg border bg-white border-gray-200 shadow-md mx-auto p-2">
     <table class="w-full border-collapse  text-left text-sm text-gray-500">
         <thead class="bg-gray-50">
@@ -25,7 +15,7 @@
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-            @foreach ($customers as $customerdata)
+            @foreach ($customer as $customerdata)
             <tr class="hover:bg-gray-50">
                 <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
                     <div class="text-sm">
@@ -46,6 +36,3 @@
         </tbody>
     </table>
 </div>
-@endif
-
-@endsection
